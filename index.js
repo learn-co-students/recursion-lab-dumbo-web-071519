@@ -12,14 +12,23 @@ function printString(string){
 }
 
 function reverseString(string){
-  let word = ""
-  word += string[string.length-1]
-  console.log(string[string.length-1])
-  if (string.length > 1){
-    let substring = string.substring(0, string.length-1)
-    reverseString(substring)
+  if (string.length < 1){
+    return ""
   }
   else {
+    return reverseString(string.substring(1)) + string.charAt(0)
+  }
+}
+
+function isPalindrome(string){
+
+  if (string.length==1){
     return true
+  }else if(string.length==0){
+    return true
+  }else{
+    string.charAt(0) == string.charAt(string.length-1) ? true : false
+    let substring = string.substring(1, string.length-1)
+    isPalindrome(substring)
   }
 }
