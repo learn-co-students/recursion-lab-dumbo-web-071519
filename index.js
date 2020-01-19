@@ -22,13 +22,14 @@ function reverseString(string){
 
 function isPalindrome(string){
 
-  if (string.length==1){
+  if (string.length<2){
     return true
-  }else if(string.length==0){
-    return true
-  }else{
-    string.charAt(0) == string.charAt(string.length-1) ? true : false
-    let substring = string.substring(1, string.length-1)
-    isPalindrome(substring)
   }
+
+  if (string.charAt(0) == string.charAt(string.length-1)){
+    let substring = string.substring(1, string.length-1)
+    return isPalindrome(substring)
+  }
+
+  return false
 }
