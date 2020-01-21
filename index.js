@@ -33,3 +33,39 @@ function isPalindrome(string){
 
   return false
 }
+
+function addUpTo(array, index){
+
+  if (index==0){
+    return array[index]
+  }
+
+  if (index>0){
+    return array[index] + addUpTo(array.slice(0,index), index-1)
+  }
+
+}
+
+function maxOf(array){
+  // [1,5,3,2,9]
+  // [5,3,2,9]
+  // [5,2,9]
+  // [5,9]
+  // [9]
+  if(array.length==1){
+    return array[0]
+  }else {
+    return Math.max(array.pop(), maxOf(array))
+  }
+
+}
+
+function includesNumber(myArray, myNumber) {
+  if (!myArray.length) {
+    return false;
+  } else if (myArray[0] === myNumber) {
+    return true;
+  } else {
+    return includesNumber(myArray.slice(1), myNumber);
+  }
+}
